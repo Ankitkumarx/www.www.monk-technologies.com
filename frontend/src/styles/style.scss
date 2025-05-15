@@ -1,6 +1,6 @@
+@import './_variables.scss';
 $white: #ffffff;
 $black: #000000;
-// $primary1: #0cb1a8;
 $primary1: #00bbf0;
 $primary2: #00204a;
 $textCol: #1f1f1f;
@@ -13,6 +13,7 @@ $textCol: #1f1f1f;
 
 // Import other style files
 @import './contact.scss';
+@import 'training.scss';
 
 @mixin main-font {
   font-family: "Open Sans", sans-serif;
@@ -40,7 +41,7 @@ $textCol: #1f1f1f;
 // Global styles
 body {
   font-family: 'Poppins', sans-serif;
-  color: $text-color;
+  color: $textCol;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -153,7 +154,6 @@ a:focus {
       display: none;
     }
   }
-
 }
 
 .header_section {
@@ -236,7 +236,6 @@ a:focus {
     transition: all 0.3s;
     position: relative;
     border-radius: 5px;
-    transition: all 0.3s;
 
     &::before,
     &::after {
@@ -268,11 +267,7 @@ a:focus {
         top: 0;
       }
     }
-
-
   }
-
-
 }
 
 /*end header section*/

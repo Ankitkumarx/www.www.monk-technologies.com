@@ -171,4 +171,116 @@
       }
     }
   }
-} 
+}
+
+.slider_section {
+  .carousel {
+    position: relative;
+    
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      z-index: 2;
+      
+      li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba($white, 0.5);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        
+        &.active {
+          background-color: $primary-color;
+          transform: scale(1.2);
+        }
+      }
+    }
+    
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background: rgba($primary-color, 0.2);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.3s ease;
+      border: none;
+      
+      &:hover {
+        background: $primary-color;
+        opacity: 1;
+      }
+      
+      span {
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+      }
+    }
+    
+    &:hover {
+      .carousel-control-prev,
+      .carousel-control-next {
+        opacity: 0.7;
+      }
+    }
+    
+    .detail-box {
+      h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: $white;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        color: rgba($white, 0.9);
+      }
+      
+      .btn1 {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 35px;
+        background-color: $primary-color;
+        color: $white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        
+        i {
+          margin-left: 8px;
+        }
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

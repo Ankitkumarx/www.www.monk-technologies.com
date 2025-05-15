@@ -13,17 +13,20 @@ const Home = () => {
     {
       title: "Cloud Solutions",
       description: "Transform your business with our cutting-edge cloud infrastructure and DevOps solutions. We help organizations achieve scalability, reliability, and efficiency in their digital operations.",
-      image: "/images/slider-img.png"
+      image: "/images/slider-img.png",
+      cta: { text: "Explore Solutions", link: "/services" }
     },
     {
       title: "DevOps Excellence",
       description: "Streamline your development and operations with our comprehensive DevOps services. From CI/CD pipelines to infrastructure automation, we've got you covered.",
-      image: "/images/slider-img.png"
+      image: "/images/slider-img.png",
+      cta: { text: "Learn More", link: "/services#devops" }
     },
     {
       title: "24/7 Support",
       description: "Our expert team provides round-the-clock support to ensure your cloud infrastructure runs smoothly. We're here to help you succeed in your digital transformation journey.",
-      image: "/images/slider-img.png"
+      image: "/images/slider-img.png",
+      cta: { text: "Contact Support", link: "/contact" }
     }
   ];
 
@@ -33,6 +36,14 @@ const Home = () => {
     if (displayYear) {
       displayYear.textContent = new Date().getFullYear();
     }
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000); // Change slide every 5 seconds
+  
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -56,18 +67,13 @@ const Home = () => {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="detail-box">
-                          <h1>
-                            {slide.title.split(' ').map((word, i) => (
-                              <React.Fragment key={i}>
-                                {word} <br />
-                              </React.Fragment>
-                            ))}
-                          </h1>
+                          <h1>{slide.title}</h1>
                           <p>{slide.description}</p>
                           <div className="btn-box">
-                            <button className="btn1">
-                              Get Started
-                            </button>
+                            <Link to={slide.cta.link} className="btn1">
+                              {slide.cta.text}
+                              <i className="fas fa-arrow-right ms-2"></i>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -81,7 +87,23 @@ const Home = () => {
                 </div>
               ))}
             </div>
-           
+            
+            <ol className="carousel-indicators">
+              {slides.map((_, index) => (
+                <li
+                  key={index}
+                  className={index === currentSlide ? 'active' : ''}
+                  onClick={() => setCurrentSlide(index)}
+                />
+              ))}
+            </ol>
+            
+            <button className="carousel-control-prev" onClick={() => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}>
+              <span className="carousel-control-prev-icon" />
+            </button>
+            <button className="carousel-control-next" onClick={() => setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}>
+              <span className="carousel-control-next-icon" />
+            </button>
           </div>
         </section>
       </div>
@@ -134,39 +156,38 @@ const Home = () => {
               </p>
             </div>
             <div className="row">
-              <div className="col-md-4">
-                <div className="box">
-                  <div className="img-box">
-                    <i className="fa fa-cloud" aria-hidden="true"></i>
-                  </div>
-                  <div className="detail-box">
-                    <h5>Cloud Infrastructure</h5>
-                    <p>Scalable and secure cloud solutions tailored to your business needs. We help you migrate, manage, and optimize your cloud infrastructure.</p>
+              {[
+                {
+                  icon: "fa-cloud",
+                  title: "Cloud Infrastructure",
+                  description: "Scalable and secure cloud solutions tailored to your business needs."
+                },
+                {
+                  icon: "fa-code",
+                  title: "DevOps Services",
+                  description: "End-to-end DevOps solutions including CI/CD pipelines, containerization, and infrastructure as code to accelerate your development process."
+                },
+                {
+                  icon: "fa-shield-alt",
+                  title: "Cloud Security",
+                  description: "Comprehensive security solutions to protect your cloud infrastructure. We ensure your data and applications are safe and compliant."
+                }
+              ].map((service, index) => (
+                <div className="col-md-4" key={index}>
+                  <div className="box" data-aos="fade-up" data-aos-delay={index * 100}>
+                    <div className="img-box">
+                      <i className={`fa ${service.icon}`} aria-hidden="true"></i>
+                    </div>
+                    <div className="detail-box">
+                      <h5>{service.title}</h5>
+                      <p>{service.description}</p>
+                      <Link to="/services" className="read-more">
+                        Learn More <i className="fas fa-arrow-right"></i>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-4">
-                <div className="box">
-                  <div className="img-box">
-                    <i className="fa fa-code" aria-hidden="true"></i>
-                  </div>
-                  <div className="detail-box">
-                    <h5>DevOps Services</h5>
-                    <p>End-to-end DevOps solutions including CI/CD pipelines, containerization, and infrastructure as code to accelerate your development process.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="box">
-                  <div className="img-box">
-                    <i className="fa fa-shield-alt" aria-hidden="true"></i>
-                  </div>
-                  <div className="detail-box">
-                    <h5>Cloud Security</h5>
-                    <p>Comprehensive security solutions to protect your cloud infrastructure. We ensure your data and applications are safe and compliant.</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -216,4 +237,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;

@@ -29,7 +29,11 @@ const Header = () => {
 
           <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
             <ul className="navbar-nav">
-              
+              <li className="nav-item">
+                <Link className="nav-link" to="/training" onClick={() => setIsOpen(false)}>
+                  Training
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about" onClick={() => setIsOpen(false)}>
                   About
@@ -58,4 +62,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

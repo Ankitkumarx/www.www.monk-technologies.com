@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 
 // Import pages
 import Home from './pages/Home';
+import Training from './pages/Training';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
@@ -17,12 +18,11 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/training" element={<Training />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/case-studies" element={<CaseStudies />} />
-          {/* <Route path="/team" element={<Team />} />
-          <Route path="/why" element={<Why />} /> */}
         </Routes>
         <Footer />
       </div>

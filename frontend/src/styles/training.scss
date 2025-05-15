@@ -1,0 +1,194 @@
+@import './main.scss';
+
+.training_page {
+  background-color: #000000;
+  color: $white;
+
+  .training_hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../../public/images/slider-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    text-align: center;
+    color: $white;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+      color: $white;
+    }
+
+    p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      color: #e0e0e0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  .training_section {
+    padding: 80px 0;
+    background-color: #0a0a0a;
+
+    .heading_container {
+      margin-bottom: 45px;
+      text-align: center;
+
+      h2 {
+        color: $white;
+        font-weight: 700;
+        
+        span {
+          color: $primary-color;
+        }
+      }
+
+      p {
+        color: #e0e0e0;
+        margin-top: 15px;
+      }
+    }
+
+    .training_box {
+      background: #111111;
+      padding: 35px 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      height: 100%;
+      transition: transform 0.3s ease;
+      border: 1px solid #222;
+
+      &:hover {
+        transform: translateY(-5px);
+        border-color: $primary-color;
+      }
+
+      .training_icon {
+        width: 60px;
+        height: 60px;
+        background: $primary-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        i {
+          color: $white;
+          font-size: 28px;
+        }
+      }
+
+      h4 {
+        color: $white;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      p {
+        color: #e0e0e0;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .topics-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px;
+
+        li {
+          color: #e0e0e0;
+          margin-bottom: 8px;
+          padding-left: 20px;
+          position: relative;
+
+          &:before {
+            content: '•';
+            color: $primary-color;
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      .read_more {
+        background: none;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        padding: 8px 25px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $primary-color;
+          color: $white;
+        }
+      }
+    }
+
+    .training_cta {
+      text-align: center;
+      margin-top: 60px;
+      padding: 50px;
+      background: linear-gradient(135deg, #111111, #1a1a1a);
+      border-radius: 15px;
+      color: $white;
+      border: 1px solid #222;
+
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+        color: #e0e0e0;
+      }
+
+      .enroll_btn {
+        background: $primary-color;
+        color: $white;
+        border: none;
+        padding: 12px 35px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: lighten($primary-color, 5%);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .training_page {
+    .training_hero {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .training_section {
+      .training_box {
+        margin-bottom: 30px;
+      }
+
+      .training_cta {
+        padding: 30px 20px;
+
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+    }
+  }
+}
