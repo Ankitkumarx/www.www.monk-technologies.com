@@ -69,22 +69,28 @@
 
         .btn-box {
           margin-top: 30px;
-
+          
           .btn1 {
-            background-color: #312586;
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: $primary-color;
             color: $white;
-            padding: 12px 35px;
             border-radius: 5px;
-            border: none;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            font-weight: 500;
-            letter-spacing: 1px;
-
+            transition: all 0.3s ease;
+            
             &:hover {
               background-color: darken($primary-color, 10%);
               transform: translateY(-2px);
-              box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+            }
+            
+            i {
+              margin-left: 10px;
+              transition: transform 0.3s ease;
+            }
+            
+            &:hover i {
+              transform: translateX(5px);
             }
           }
         }

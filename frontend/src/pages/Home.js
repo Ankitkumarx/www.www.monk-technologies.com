@@ -72,7 +72,7 @@ const Home = () => {
                           <div className="btn-box">
                             <Link to={slide.cta.link} className="btn1">
                               {slide.cta.text}
-                              <i className="fas fa-arrow-right ms-2"></i>
+                              <i className="fas fa-arrow-right ms-3"></i>
                             </Link>
                           </div>
                         </div>
@@ -182,7 +182,7 @@ const Home = () => {
                       <h5>{service.title}</h5>
                       <p>{service.description}</p>
                       <Link to="/services" className="read-more">
-                        Learn More <i className="fas fa-arrow-right"></i>
+                        Learn More <i className="fas fa-arrow-right ms-2"></i>
                       </Link>
                     </div>
                   </div>
