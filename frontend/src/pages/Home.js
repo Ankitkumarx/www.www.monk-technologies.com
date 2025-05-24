@@ -67,12 +67,12 @@ const Home = () => {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="detail-box">
-                          <h1>{slide.title}</h1>
-                          <p>{slide.description}</p>
+                          <h1 className="slide-title">{slide.title}</h1>
+                          <p className="slide-description">{slide.description}</p>
                           <div className="btn-box">
                             <Link to={slide.cta.link} className="btn1">
-                              {slide.cta.text}
-                              <i className="fas fa-arrow-right ms-3"></i>
+                              <span>{slide.cta.text}</span>
+                              <i className="fas fa-arrow-right"></i>
                             </Link>
                           </div>
                         </div>
