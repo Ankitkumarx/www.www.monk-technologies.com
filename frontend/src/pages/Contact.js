@@ -40,7 +40,7 @@ const Contact = () => {
             <p>Get in touch with us for any questions or inquiries</p>
           </div>
         </div>
-
+      
         <section className="contact_section">
           <div className="container">
             <div className="row">
@@ -74,12 +74,18 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-md-8">
-                <div className="contact_form">
-                  <h3>Send us a Message</h3>
-                  <p>Fill out the form below and we'll get back to you shortly.</p>
-                  <div id="hubspot-form-container" className="form-container"></div>
-                </div>
-              </div>
+                <div className="contact_form" id="contact-form">
+                  <h1 className="form-heading">Contact Us!</h1>
+                  <iframe 
+                    src="https://share-na2.hsforms.com/1uScDDy0zQUWqlMDfCNn0GA40l72z"
+                    width="100%"
+                    height="800"
+                    frameBorder="0"
+                    title="HubSpot Contact Form"
+                    className="hubspot-form"
+                  />
+                  </div>
+                </div>
             </div>
           </div>
         </section>
