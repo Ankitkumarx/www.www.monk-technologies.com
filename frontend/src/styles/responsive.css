@@ -5,9 +5,6 @@
 @media (max-width: 992px) {
   .hero_area {
     min-height: auto;
-  }
-
-  .hero_area {
     background: linear-gradient(130deg, #231a6f, #0f054c);
   }
 
@@ -24,46 +21,84 @@
     align-items: center;
   }
 
-
-  .custom_nav-container .navbar-nav .nav-item .nav-link {
-    padding: 5px 25px;
-    margin: 5px 0;
+  .service_section .row {
+    margin: 0 -10px;
   }
 
+  .service_section .col-md-4 {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
 
+  .trusted_by_section .companies_circle {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .trusted_by_section .company_logo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
-  .about_section .img-box {
-    margin-bottom: 45px;
+  .slider_section .detail-box {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 30px;
   }
 
+  .slider_section .img-box {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .heading_container h2 {
+    font-size: 28px;
+  }
+
+  .heading_container p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .service_section .box {
+    padding: 25px 20px;
+  }
+
+  .trusted_by_section .companies_circle {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 576px) {
-  .header_section .header_top .contact_nav a span {
-    display: none;
+  .slider_section .detail-box h1 {
+    font-size: 32px;
   }
 
-
-  .client_section .client_container {
-    width: 100%;
+  .slider_section .detail-box p {
+    font-size: 16px;
   }
 
-  .client_section .box {
-    margin: 0;
+  .btn1 {
+    padding: 8px 25px;
+    font-size: 15px;
   }
 
-  .owl-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 45px;
+  .trusted_by_section .companies_circle {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
 
-  .client_section .owl-carousel .owl-nav .owl-prev,
-  .client_section .owl-carousel .owl-nav .owl-next {
-    position: unset;
-    margin: 0 2.5px;
+  .service_section .box {
+    margin-bottom: 20px;
   }
 }
 

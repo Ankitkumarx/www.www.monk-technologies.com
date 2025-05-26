@@ -114,31 +114,31 @@ const Home = () => {
         <div className="stars3"></div>
         <div className="container">
           <div className="heading_container">
-            <h2>We empower builders 
-               <span>  for innovation</span></h2>
+            <h2>Empowering Digital Innovation 
+               <span> Through Technology</span></h2>
             <p>
-             Our deep care for our people and customers allows us to achieve substantial results with small teams and fosters creativity at the edge of what's possible.
+             We help businesses transform their digital landscape with cutting-edge cloud solutions, DevOps practices, and innovative technologies that drive growth and efficiency.
             </p>
           </div>
-          <h3>Trusted By</h3>
+          <h3>Technology Partners</h3>
           <div className="companies_circle">
             <div className="company_logo">
-              <img src="/images/companies/aws.png" alt="AWS" />
+              <img src="/images/companies/aws.png" alt="AWS Partner" />
             </div>
             <div className="company_logo">
-              <img src="/images/companies/google-cloud.png" alt="Google Cloud" />
+              <img src="/images/companies/google-cloud.png" alt="Google Cloud Partner" />
             </div>
             <div className="company_logo">
-              <img src="/images/companies/azure.png" alt="Microsoft Azure" />
+              <img src="/images/companies/azure.png" alt="Microsoft Azure Partner" />
             </div>
             <div className="company_logo">
-              <img src="/images/companies/kubernetes.png" alt="Kubernetes" />
+              <img src="/images/companies/kubernetes.png" alt="Kubernetes Certified" />
             </div>
             <div className="company_logo">
-              <img src="/images/companies/docker.png" alt="Docker" />
+              <img src="/images/companies/docker.png" alt="Docker Certified" />
             </div>
             <div className="company_logo">
-              <img src="/images/companies/github.png" alt="GitHub" />
+              <img src="/images/companies/github.png" alt="GitHub Partner" />
             </div>
           </div>
         </div>
@@ -149,40 +149,40 @@ const Home = () => {
           <div className="container">
             <div className="heading_container">
               <h2>
-                Our <span>Services</span>
+                Our <span>Solutions</span>
               </h2>
               <p>
-                We provide comprehensive cloud and DevOps solutions to help your business thrive in the digital age. Our services are designed to enhance efficiency, reduce costs, and drive innovation.
+                Delivering enterprise-grade cloud and DevOps solutions that transform businesses. Our expertise spans across modern infrastructure, automation, and security to accelerate your digital journey.
               </p>
             </div>
             <div className="row">
               {[
                 {
                   icon: "fa-cloud",
-                  title: "Cloud Infrastructure",
-                  description: "Scalable and secure cloud solutions tailored to your business needs."
+                  title: "Cloud Infrastructure & Migration",
+                  description: "Enterprise-grade cloud solutions with seamless migration strategies, optimized performance, and cost management."
                 },
                 {
-                  icon: "fa-code",
-                  title: "DevOps Services",
-                  description: "End-to-end DevOps solutions including CI/CD pipelines, containerization, and infrastructure as code to accelerate your development process."
+                  icon: "fa-code-branch",
+                  title: "DevOps & Automation",
+                  description: "Modern CI/CD pipelines, infrastructure as code, and automated workflows that accelerate delivery and improve reliability."
                 },
                 {
                   icon: "fa-shield-alt",
-                  title: "Cloud Security",
-                  description: "Comprehensive security solutions to protect your cloud infrastructure. We ensure your data and applications are safe and compliant."
+                  title: "Security & Compliance",
+                  description: "Comprehensive cloud security solutions with continuous monitoring, threat detection, and compliance management."
                 }
               ].map((service, index) => (
                 <div className="col-md-4" key={index}>
                   <div className="box" data-aos="fade-up" data-aos-delay={index * 100}>
                     <div className="img-box">
-                      <i className={`fa ${service.icon}`} aria-hidden="true"></i>
+                      <i className={`fas ${service.icon}`} aria-hidden="true"></i>
                     </div>
                     <div className="detail-box">
                       <h5>{service.title}</h5>
                       <p>{service.description}</p>
                       <Link to="/services" className="read-more">
-                        Learn More <i className="fas fa-arrow-right ms-2"></i>
+                        Explore Solutions <i className="fas fa-arrow-right ms-2"></i>
                       </Link>
                     </div>
                   </div>
@@ -192,8 +192,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-     
-      
 
       {/* Contact Section */}
       <section className="contact_section">
@@ -206,15 +204,15 @@ const Home = () => {
                 <div className="contact_features">
                   <div className="feature_item">
                     <i className="fas fa-check-circle"></i>
-                    <span>24/7 Support Available</span>
+                    <span> 24/7 Support Available </span>
                   </div>
                   <div className="feature_item">
                     <i className="fas fa-check-circle"></i>
-                    <span>Free Consultation</span>
+                    <span> Free Consultation </span>
                   </div>
                   <div className="feature_item">
                     <i className="fas fa-check-circle"></i>
-                    <span>Custom Solutions</span>
+                    <span> Custom Solutions </span>
                   </div>
                 </div>
               </div>

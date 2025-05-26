@@ -66,7 +66,9 @@ const Training = () => {
                       <li key={idx}>{topic}</li>
                     ))}
                   </ul>
-                  <button className="read_more">Learn More</button>
+                  <button className="read_more" onClick={() => window.open('https://docs.google.com/document/d/1pMDQhfoDAeApyNbmtbPTo-aH85q_oYjxdNeAlVPtYB4/edit?tab=t.0#heading=h.18r3g1gjyu39', '_blank')}>
+                    Learn More
+                  </button>
                 </div>
               </div>
             ))}

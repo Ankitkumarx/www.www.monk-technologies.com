@@ -2,7 +2,8 @@
 
 .contact_page {
   .contact_hero {
-    background: linear-gradient(rgba($secondary-color, 0.8), rgba(0, 10, 5, 77)), url('../../public/images/slider-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80');
     background-size: cover;
     background-position: center;
     padding: 100px 0;
@@ -23,56 +24,43 @@
 
   .contact_section {
     padding: 80px 0;
-    background-color: #ffffff;
+    background: #f8f9fa;
 
     .contact_info {
-      background: $white;
-      padding: 30px;
-      border-radius: 10px;
-      @include box-shadow;
-
       h3 {
-        color: $secondary-color;
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 30px;
-        position: relative;
-        padding-bottom: 15px;
-
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 50px;
-          height: 3px;
-          background-color: $primary-color;
-        }
+        color: #333;
       }
 
       .info_items {
         .info_item {
           display: flex;
           align-items: flex-start;
-          margin-bottom: 25px;
+          margin-bottom: 30px;
+          padding: 20px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 
           i {
-            font-size: 1.5rem;
-            color: $primary-color;
+            font-size: 24px;
+            color: #007bff;
             margin-right: 15px;
             margin-top: 5px;
           }
 
           .info_content {
-            h4 {
-              color: $secondary-color;
+            h5 {
               font-size: 1.1rem;
               margin-bottom: 5px;
+              color: #333;
             }
 
             p {
-              color: $text-color;
+              margin-bottom: 0;
+              color: #666;
               line-height: 1.6;
-              margin: 0;
             }
           }
         }
@@ -80,147 +68,24 @@
     }
 
     .contact_form {
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 
       h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
         color: #333;
-        margin-bottom: 30px;
-        font-size: 24px;
-        font-weight: 600;
       }
 
-      .success-message {
-        background: linear-gradient(135deg, #28a745, #20c997);
-        color: white;
-        padding: 30px;
-        border-radius: 10px;
-        text-align: center;
-        animation: slideIn 0.5s ease-out;
-
-        i {
-          font-size: 48px;
-          margin-bottom: 20px;
-          display: block;
-        }
-
-        h4 {
-          font-size: 24px;
-          margin-bottom: 15px;
-          font-weight: 600;
-        }
-
-        p {
-          font-size: 16px;
-          opacity: 0.9;
-        }
+      p {
+        color: #666;
+        margin-bottom: 25px;
       }
 
-      .error-message {
-        background: linear-gradient(135deg, #dc3545, #c82333);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        animation: slideIn 0.5s ease-out;
-
-        &::before {
-          content: "⚠️";
-          margin-right: 10px;
-          font-size: 18px;
-        }
-      }
-
-      .form_group {
-        margin-bottom: 20px;
-
-        label {
-          display: block;
-          margin-bottom: 8px;
-          color: #555;
-          font-weight: 500;
-          font-size: 14px;
-
-          &::after {
-            content: "*";
-            color: #dc3545;
-            margin-left: 4px;
-          }
-        }
-
-        input,
-        textarea {
-          width: 100%;
-          padding: 12px 15px;
-          border: 2px solid #e9ecef;
-          border-radius: 8px;
-          font-size: 14px;
-          transition: all 0.3s ease;
-
-          &:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-            outline: none;
-          }
-
-          &::placeholder {
-            color: #adb5bd;
-          }
-        }
-
-        textarea {
-          resize: vertical;
-          min-height: 120px;
-        }
-      }
-
-      .submit-button {
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        color: white;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        &:disabled {
-          background: linear-gradient(135deg, #6c757d, #5a6268);
-          cursor: not-allowed;
-          transform: none;
-          box-shadow: none;
-        }
-
-        &::before {
-          content: "";
-          width: 20px;
-          height: 20px;
-          border: 2px solid white;
-          border-radius: 50%;
-          border-top-color: transparent;
-          animation: spin 1s linear infinite;
-          display: none;
-        }
-
-        &:disabled::before {
-          display: block;
-        }
+      .form-container {
+        min-height: 400px;
       }
     }
   }
@@ -320,4 +185,12 @@
       }
     }
   }
-} 
+}
+
+#hubspot-form-container {
+  width: 100%;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: transparent;
+}

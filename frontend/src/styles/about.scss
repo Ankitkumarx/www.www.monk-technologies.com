@@ -1,11 +1,11 @@
 @import './main.scss';
 
 .about_page {
-  background-color: #000000;
+  background-color: #0a192f;
   color: #ffffff;
 
   .about_hero {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), url('../../public/images/slider-bg.jpg');
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(17, 34, 64, 0.85)), url('https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=2000&q=80') !important;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -21,31 +21,11 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: $white;
-      font-weight: 800;
-      letter-spacing: 2px;
-      position: relative;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    p {
-      font-size: 1.4rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-      color: #e0e0e0;
-      position: relative;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      background: radial-gradient(circle at center, rgba(64, 192, 255, 0.1) 0%, rgba(10, 25, 47, 0.9) 100%);
     }
   }
 
-.about_section {
+  .about_section {
     padding: 120px 0;
     background-color: #0a0a0a;
     position: relative;
@@ -465,7 +445,7 @@
       }
     }
 
-  .about_section {
+    .about_section {
       padding: 60px 0;
 
       .about_content {
@@ -473,7 +453,7 @@
         gap: 40px;
 
         .about_text {
-        text-align: center;
+          text-align: center;
 
           h2 {
             &::after {
@@ -512,4 +492,4 @@
       }
     }
   }
-} 
+}

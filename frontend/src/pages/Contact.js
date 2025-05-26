@@ -1,60 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import ScrollToTop from '../components/ScrollToTop';
-import { submitContactForm } from '../services/api';
 import '../styles/contact.scss';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
-
   useEffect(() => {
-    // Scroll to form section if hash is present in URL
-    if (window.location.hash === '#contact-form') {
-      const formSection = document.getElementById('contact-form');
-      if (formSection) {
-        formSection.scrollIntoView({ behavior: 'smooth' });
+    const loadForm = () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: "na2",
+          portalId: "40l72z",
+          formId: "1uScDDy0zQUWqlMDfCNn0GA",
+          target: "#hubspot-form-container",
+          css: ""
+        });
       }
+    };
+
+    // Check if HubSpot script is already loaded
+    if (!window.hbspt) {
+      const script = document.createElement('script');
+      script.src = '//js.hsforms.net/forms/embed/v2.js';
+      script.async = true;
+      script.onload = () => loadForm();
+      document.body.appendChild(script);
+    } else {
+      loadForm();
     }
   }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    setSuccess(false);
-
-    try {
-      await submitContactForm(formData);
-      setSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    } catch (err) {
-      console.error('Form submission error:', err);
-      setError(err.message || 'Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
@@ -76,107 +49,35 @@ const Contact = () => {
                   <h3>Get in Touch</h3>
                   <div className="info_items">
                     <div className="info_item">
-                      <i className="fas fa-map-marker-alt"></i>
-                      <div className="info_content">
-                        <h4>Address</h4>
-                        <p>123 Tech Street, Digital City<br />Innovation Hub, 12345</p>
-                      </div>
-                    </div>
-                    <div className="info_item">
-                      <i className="fas fa-phone"></i>
-                      <div className="info_content">
-                        <h4>Phone</h4>
-                        <p>+1 234 567 890<br />+1 234 567 891</p>
-                      </div>
-                    </div>
-                    <div className="info_item">
                       <i className="fas fa-envelope"></i>
                       <div className="info_content">
-                        <h4>Email</h4>
-                        <p>info@monktech.com<br />support@monktech.com</p>
+                        <h5>Email Us</h5>
+                        <p>support@monk-technologies.com</p>
+                      </div>
+                    </div>
+                    <div className="info_item">
+                      <i className="fas fa-map-marker-alt"></i>
+                      <div className="info_content">
+                        <h5>Our Locations</h5>
+                        <p>Bengaluru | Hyderabad | Lagos | Nairobi | Delaware</p>
                       </div>
                     </div>
                     <div className="info_item">
                       <i className="fas fa-clock"></i>
                       <div className="info_content">
-                        <h4>Working Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br />Saturday: 10:00 AM - 4:00 PM</p>
+                        <h5>Business Hours</h5>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday - Sunday: Closed</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-md-8">
-                <div className="contact_form" id="contact-form">
+                <div className="contact_form">
                   <h3>Send us a Message</h3>
-                  {success ? (
-                    <div className="success-message">
-                      <i className="fas fa-check-circle"></i>
-                      <h4>Message Sent Successfully!</h4>
-                      <p>Thank you for contacting us. We will get back to you soon.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit}>
-                      {error && <div className="error-message">{error}</div>}
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="form_group">
-                            <label htmlFor="name">Full Name</label>
-                            <input
-                              type="text"
-                              id="name"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleChange}
-                              required
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="form_group">
-                            <label htmlFor="email">Email Address</label>
-                            <input
-                              type="email"
-                              id="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleChange}
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form_group">
-                        <label htmlFor="subject">Subject</label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          required
-                        />
-                      </div>
-                      <div className="form_group">
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          rows="5"
-                          required
-                        ></textarea>
-                      </div>
-                      <button 
-                        type="submit" 
-                        className="submit-button"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                      </button>
-                    </form>
-                  )}
+                  <p>Fill out the form below and we'll get back to you shortly.</p>
+                  <div id="hubspot-form-container" className="form-container"></div>
                 </div>
               </div>
             </div>
@@ -203,4 +104,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

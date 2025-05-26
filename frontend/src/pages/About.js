@@ -31,33 +31,11 @@ const About = () => {
     setSelectedPosition('');
   };
 
-  const teamMembers = [
-    {
-      name: "Aaron Beyer",
-      position: "Senior Data Architect",
-      image: "/images/team-1.jpg"
-    },
-    {
-      name: "Alex Dupuy",
-      position: "Lead Cloud Engineer",
-      image: "/images/team-2.jpg"
-    },
-    {
-      name: "Andriy Duyko",
-      position: "Engineering Manager",
-      image: "/images/team-3.jpg"
-    },
-  ];
-
   const openPositions = [
     {
       title: "Cloud Analyst",
       location: "Remote"
     },
-    // {
-    //   title: "Software Developer",
-    //   location: "Remote"
-    // },
     {
       title: "Cloud Engineers",
       location: "Remote"
@@ -103,28 +81,8 @@ const About = () => {
                 </div>
               </div>
               <div className="about_image fade-in">
-                <img src="/images/about-img.jpg" alt="About Us" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80" alt="About Us - Modern Tech Workspace" />
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="team_section">
-          <div className="container">
-            <h2 className="section_title">Meet the Team</h2>
-            <p className="section_subtitle">We are a vibrant team of engineering-driven and people-focused professionals, priding ourselves on being approachable experts and innovative problem solvers. We're also known for being kind, interesting, and genuinely fun to work with, making every project not just a success, but a truly enjoyable journey.</p>
-            <div className="team_grid">
-              {teamMembers.map((member, index) => (
-                <div key={index} className="team_member">
-                  <div className="member_image">
-                    <img src={member.image} alt={member.name} />
-                  </div>
-                  <div className="member_info">
-                    <h3>{member.name}</h3>
-                    <p>{member.position}</p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -162,4 +120,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

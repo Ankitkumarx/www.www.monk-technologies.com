@@ -89,21 +89,24 @@
         a {
           color: rgba($white, 0.8);
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 10px;
           transition: all 0.3s;
           text-decoration: none;
+
+          &.location-link {
+            span {
+              line-height: 1.5;
+              display: inline-block;
+              text-align: left;
+            }
+          }
 
           i {
             color: $primary-color;
             font-size: 1.2rem;
             width: 20px;
-            text-align: center;
-          }
-
-          &:hover {
-            color: $white;
-            transform: translateX(5px);
+            margin-top: 4px;
           }
         }
       }
@@ -241,4 +244,4 @@
       }
     }
   }
-} 
+}
