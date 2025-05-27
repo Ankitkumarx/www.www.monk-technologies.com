@@ -237,19 +237,24 @@ const Home = () => {
             {trainingPrograms.map((program, index) => (
               <div key={index} className="col-md-6 col-lg-3">
                 <div className="training_box">
-                  <div className="training_icon">
-                    <i className={`fa ${program.icon}`}></i>
+                  <div className="program_header">
+                    <div className="program_icon">
+                      <i className={`fa ${program.icon}`}></i>
+                    </div>
+                    <h4>{program.title}</h4>
                   </div>
-                  <h4>{program.title}</h4>
                   <p>{program.description}</p>
                   <ul className="topics-list">
                     {program.topics.map((topic, idx) => (
-                      <li key={idx}>{topic}</li>
+                      <li key={idx}>
+                        <i className="fas fa-check"></i>
+                        {topic}
+                      </li>
                     ))}
                   </ul>
-                  <button className="read_more" onClick={() => window.open('https://docs.google.com/document/d/1pMDQhfoDAeApyNbmtbPTo-aH85q_oYjxdNeAlVPtYB4/edit?tab=t.0#heading=h.18r3g1gjyu39', '_blank')}>
+                  <Link to="/training" className="learn_more">
                     Learn More
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -263,8 +268,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
 
       {/* Contact Section */}
       <section className="contact_section">
@@ -303,7 +306,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+    </div>
     </>
   );
 };
