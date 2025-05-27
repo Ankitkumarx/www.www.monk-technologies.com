@@ -5,6 +5,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import '../styles/main.scss';
 import '../styles/hero.scss';
 import '../styles/service.scss';
+import '../styles/training.scss';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,6 +28,32 @@ const Home = () => {
       description: "Our expert team provides round-the-clock support to ensure your cloud infrastructure runs smoothly. We're here to help you succeed in your digital transformation journey.",
       image: "/images/slider-img.png",
       cta: { text: "Contact Support", link: "/contact" }
+    }
+  ];
+  const trainingPrograms = [
+    {
+      title: 'DevOps',
+      description: 'Master the art of DevOps with our comprehensive program covering CI/CD, containerization, automation, and infrastructure as code. Learn industry-leading tools and best practices for streamlined software delivery.',
+      icon: 'fa-cogs',
+      topics: ['CI/CD Pipelines', 'Docker & Kubernetes', 'Infrastructure as Code', 'Cloud Platforms']
+    },
+    {
+      title: 'MLOps',
+      description: 'Bridge the gap between Machine Learning and Operations with our specialized MLOps training. Learn to automate ML pipelines, manage model deployments, and implement robust monitoring systems.',
+      icon: 'fa-brain',
+      topics: ['ML Pipeline Automation', 'Model Deployment', 'Model Monitoring', 'Data Version Control']
+    },
+    {
+      title: 'Generative AI',
+      description: 'Dive into the cutting-edge world of Generative AI. Learn to work with large language models, create AI applications, and implement state-of-the-art generative models for real-world applications.',
+      icon: 'fa-robot',
+      topics: ['Large Language Models', 'Prompt Engineering', 'AI Application Development', 'Model Fine-tuning']
+    },
+    {
+      title: 'Cloud Engineering',
+      description: 'Become an expert in cloud technologies with our comprehensive cloud engineering program. Master major cloud platforms, architecture design, security best practices, and cloud-native development.',
+      icon: 'fa-cloud',
+      topics: ['Cloud Architecture', 'Security & Compliance', 'Serverless Computing', 'Cost Optimization']
     }
   ];
 
@@ -159,7 +186,7 @@ const Home = () => {
               {[
                 {
                   icon: "fa-cloud",
-                  title: "Cloud Infrastructure & Migration",
+                  title: "Cloud Migration",
                   description: "Enterprise-grade cloud solutions with seamless migration strategies, optimized performance, and cost management."
                 },
                 {
@@ -181,7 +208,7 @@ const Home = () => {
                     <div className="detail-box">
                       <h5>{service.title}</h5>
                       <p>{service.description}</p>
-                      <Link to="/services" className="read-more">
+                      <Link to="/services" className="solutions-btn">
                         Explore Solutions <i className="fas fa-arrow-right ms-2"></i>
                       </Link>
                     </div>
@@ -192,6 +219,52 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Training Programs Section */}
+    <div className="training_page">
+      
+      {/* Hero Section */}
+
+      {/* Training Programs Section */}
+      <section className="training_section layout_padding">
+        <div className="container">
+          <div className="heading_container heading_center">
+            <h2>Our <span>Training Programs</span></h2>
+            <p>Comprehensive training programs designed and delivered by industry experts</p>
+          </div>
+
+          <div className="row">
+            {trainingPrograms.map((program, index) => (
+              <div key={index} className="col-md-6 col-lg-3">
+                <div className="training_box">
+                  <div className="training_icon">
+                    <i className={`fa ${program.icon}`}></i>
+                  </div>
+                  <h4>{program.title}</h4>
+                  <p>{program.description}</p>
+                  <ul className="topics-list">
+                    {program.topics.map((topic, idx) => (
+                      <li key={idx}>{topic}</li>
+                    ))}
+                  </ul>
+                  <button className="read_more" onClick={() => window.open('https://docs.google.com/document/d/1pMDQhfoDAeApyNbmtbPTo-aH85q_oYjxdNeAlVPtYB4/edit?tab=t.0#heading=h.18r3g1gjyu39', '_blank')}>
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="training_cta">
+            <h3>Ready to Advance Your Career?</h3>
+            <p>Join our training programs and gain the skills needed to excel in today's tech industry</p>
+            <button className="enroll_btn">Enroll Now</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 
       {/* Contact Section */}
       <section className="contact_section">

@@ -40,13 +40,13 @@
   .slider_section {
     position: relative;
     z-index: 2;
-    padding: 100px 0;
-    color: $white;
+    padding: 80px 0;
+    background: linear-gradient(45deg, rgba(#000000, 0.1), rgba(#000000, 0.9));
 
     .carousel-item {
       .detail-box {
         h1 {
-          font-size: 3.5rem;
+          font-size: 3.0rem;
           font-weight: bold;
           margin-bottom: 20px;
           line-height: 1.2;
@@ -55,7 +55,7 @@
         }
 
         p {
-          font-size: 1.2rem;
+          font-size: 1.0rem;
           margin-bottom: 30px;
           opacity: 0.9;
           color: rgba($white, 0.9);
@@ -138,8 +138,8 @@
     
     .carousel-control-prev,
     .carousel-control-next {
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
       background: rgba($primary-color, 0.2);
       border-radius: 50%;
       top: 50%;
@@ -191,16 +191,15 @@
         margin-top: 40px;
         
         .btn1 {
-          display: inline-flex;
           align-items: center;
           justify-content: center;
           min-width: 200px; 
-          padding: 15px 30px;
+          padding: 10px;
           background-color: $primary-color;
-          color: $white;
+          color: #000000;
           border-radius: 6px;
-          font-size: 16px;
-          font-weight: 500;
+          font-size: 15px;
+          font-weight: 400;
           letter-spacing: 0.5px;
           transition: all 0.3s ease;
           text-align: center;
@@ -250,7 +249,7 @@
             height: 45px;
             padding: 0 25px;
             background-color: $primary-color;
-            color: $white;
+            color: #000000;
             border-radius: 6px;
             font-size: 15px;
             font-weight: 500;

@@ -7,7 +7,7 @@
   .service_container {
     .box {
       text-align: center;
-      padding: 45px 25px;
+      padding: 30px 25px;
       background-color: $white;
       border-radius: 15px;
       @include box-shadow;
@@ -24,7 +24,7 @@
         width: 75px;
         height: 75px;
         margin: 0 auto 25px;
-        background-color: $light-bg;
+        background-color: #00204a;
         border-radius: 50%;
         @include flex-center;
 
@@ -45,6 +45,7 @@
           margin: 0;
           color: #090A0F;
           line-height: 1.6;
+          padding-bottom: 35px;
         }
        
       }
@@ -58,7 +59,7 @@
     h2 {
       font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin: 0 auto;
       color: #00204a;
 
       span {
@@ -71,6 +72,7 @@
       line-height: 1.8;
       max-width: 800px;
       margin: 0 auto;
+      margin-top: 15px;
     }
   }
 }

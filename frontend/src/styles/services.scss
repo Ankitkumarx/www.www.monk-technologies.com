@@ -5,7 +5,7 @@
   color: #ffffff;
 
   .services_hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80');
+    background: linear-gradient(rgba(145, 128, 128, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80');
     background-size: cover;
     background-position: center;
     padding: 100px 0;
@@ -165,5 +165,26 @@
         }
       }
     }
+  }
+}
+
+.solutions-btn {
+  border: 2px solid #2d3e50;
+  color: #2d3e50;
+  padding: 12px 35px;
+  padding-bottom: 10px;
+  border-radius: 30px;
+  transition: all 0.3s;
+  font-weight: 600;
+  
+  &:hover {
+    background: #2d3e50;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 25px;
+    font-size: 0.9rem;
   }
 }

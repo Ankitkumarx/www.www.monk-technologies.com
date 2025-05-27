@@ -1,33 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import ScrollToTop from '../components/ScrollToTop';
 import '../styles/contact.scss';
 
 const Contact = () => {
-  useEffect(() => {
-    const loadForm = () => {
-      if (window.hbspt) {
-        window.hbspt.forms.create({
-          region: "na2",
-          portalId: "40l72z",
-          formId: "1uScDDy0zQUWqlMDfCNn0GA",
-          target: "#hubspot-form-container",
-          css: ""
-        });
-      }
-    };
-
-    // Check if HubSpot script is already loaded
-    if (!window.hbspt) {
-      const script = document.createElement('script');
-      script.src = '//js.hsforms.net/forms/embed/v2.js';
-      script.async = true;
-      script.onload = () => loadForm();
-      document.body.appendChild(script);
-    } else {
-      loadForm();
-    }
-  }, []);
+  const [formLoaded, setFormLoaded] = useState(false);
 
   return (
     <>
@@ -74,17 +51,19 @@ const Contact = () => {
                 </div>
               </div>
               <div className="col-md-8">
-                <div className="contact_form" id="contact-form">
-                  <h1 className="form-heading">Contact Us!</h1>
-                  <iframe 
-                    src="https://share-na2.hsforms.com/1uScDDy0zQUWqlMDfCNn0GA40l72z"
-                    width="100%"
-                    height="800"
-                    frameBorder="0"
-                    title="HubSpot Contact Form"
-                    className="hubspot-form"
-                  />
-                  </div>
+                {/* <h1>Contact us!</h1> */}
+              {/* <div className="contact_form" id="contact-form"> */}
+      {!formLoaded && <div className="form-loading">Loading contact form...</div>}
+      <iframe 
+        src="https://share-na2.hsforms.com/1uScDDy0zQUWqlMDfCNn0GA40l72z"
+        width="100%"
+        height="600"
+        title="HubSpot Contact Form"
+        className={`hubspot-form ${formLoaded ? 'visible' : ''}`}
+        loading="lazy"
+        onLoad={() => setFormLoaded(true)}
+      />
+    {/* </div> */}
                 </div>
             </div>
           </div>
@@ -96,7 +75,7 @@ const Contact = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986532934473!3d40.69714941945631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s"
                 width="100%"
-                height="450"
+                height="350"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
