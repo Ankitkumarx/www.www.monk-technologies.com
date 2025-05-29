@@ -9,7 +9,8 @@ import '../styles/training.scss';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const [showEnrollment, setShowEnrollment] = useState(false);
+  const [formLoaded, setFormLoaded] = useState(false);
   const slides = [
     {
       title: "Cloud Solutions",
@@ -32,25 +33,29 @@ const Home = () => {
   ];
   const trainingPrograms = [
     {
-      title: 'DevOps',
+      id:'devsecops',
+      title: 'DevSecOps',
       description: 'Master the art of DevOps with our comprehensive program covering CI/CD, containerization, automation, and infrastructure as code. Learn industry-leading tools and best practices for streamlined software delivery.',
       icon: 'fa-cogs',
       topics: ['CI/CD Pipelines', 'Docker & Kubernetes', 'Infrastructure as Code', 'Cloud Platforms']
     },
     {
+      id: 'mlops',
       title: 'MLOps',
       description: 'Bridge the gap between Machine Learning and Operations with our specialized MLOps training. Learn to automate ML pipelines, manage model deployments, and implement robust monitoring systems.',
       icon: 'fa-brain',
       topics: ['ML Pipeline Automation', 'Model Deployment', 'Model Monitoring', 'Data Version Control']
     },
     {
+      id:'genai',
       title: 'Generative AI',
       description: 'Dive into the cutting-edge world of Generative AI. Learn to work with large language models, create AI applications, and implement state-of-the-art generative models for real-world applications.',
       icon: 'fa-robot',
       topics: ['Large Language Models', 'Prompt Engineering', 'AI Application Development', 'Model Fine-tuning']
     },
     {
-      title: 'Cloud Engineering',
+      id:'k8s',
+      title: 'Kubernetes',
       description: 'Become an expert in cloud technologies with our comprehensive cloud engineering program. Master major cloud platforms, architecture design, security best practices, and cloud-native development.',
       icon: 'fa-cloud',
       topics: ['Cloud Architecture', 'Security & Compliance', 'Serverless Computing', 'Cost Optimization']
@@ -252,11 +257,14 @@ const Home = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/training" className="learn_more">
-                    Learn More
-                  </Link>
+                  <div>
+                  <Link to={`/training#${program.id}`} className="learn_more">
+    Learn More
+  </Link>
+                  </div>
                 </div>
               </div>
+              
             ))}
           </div>
 
@@ -264,7 +272,32 @@ const Home = () => {
           <div className="training_cta">
             <h3>Ready to Advance Your Career?</h3>
             <p>Join our training programs and gain the skills needed to excel in today's tech industry</p>
-            <button className="enroll_btn">Enroll Now</button>
+            {showEnrollment && (
+            <div className="enrollment-modal">
+            <div className="modal-backdrop" onClick={() => setShowEnrollment(false)}></div>
+            <div className="modal-content">
+            <button className="close-button" onClick={() => setShowEnrollment(false)}>
+            &times;
+            </button>
+            <iframe
+            src="https://share-na2.hsforms.com/1uScDDy0zQUWqlMDfCNn0GA40l72z"
+            width="100%"
+            height="600"
+            title="HubSpot Enrollment Form"
+            className={`hubspot-form ${formLoaded ? 'visible' : ''}`}
+            loading="lazy"
+            onLoad={() => setFormLoaded(true)}
+            />
+            </div>
+            </div>
+            )}
+          
+            <button 
+            className="solutions-btn"
+            onClick={() => setShowEnrollment(true)}
+            >
+            Enroll Now
+            </button>
           </div>
         </div>
       </section>

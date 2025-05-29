@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import ScrollToTop from '../components/ScrollToTop';
-import '../styles/training.scss';
+import '../styles/training_page.scss';
 
 // First, declare all module data constants
 const moduleData = [
   {
+    id: 'mlops',
     title: 'Module 1: Introduction to MLOps',
     topics: [
       {
@@ -156,6 +158,7 @@ const moduleData = [
 
 const genAIModuleData = [
   {
+    id: 'genai', 
     title: 'Module 1: Introduction to Generative AI',
     topics: [
       {
@@ -306,6 +309,7 @@ const genAIModuleData = [
 
 const devSecOpsModuleData = [
   {
+    id: 'devsecops',  
     title: 'Module 1: Introduction to DevSecOps',
     topics: [
       {
@@ -456,6 +460,7 @@ const devSecOpsModuleData = [
 
 const kubernetesModuleData = [
   {
+    id: 'kubernetes',
     title: 'Module 1: Introduction to Kubernetes',
     topics: [
       {
@@ -605,285 +610,66 @@ const kubernetesModuleData = [
 ];
 
 const Training = () => {
-  const [selectedCourse, setSelectedCourse] = useState(null);
-  const [expandedModules, setExpandedModules] = useState([]);
+  const [activeModule, setActiveModule] = useState(null);
+  const location = useLocation();
 
-  // After moduleData and genAIModuleData, before the Training component
-  const kubernetesModuleData = [
-    {
-      title: 'Module 1: Introduction to Kubernetes',
-      topics: [
-        {
-          title: 'What is Kubernetes and why use it?',
-          description: 'Understanding the fundamentals and benefits of container orchestration with Kubernetes.'
-        },
-        {
-          title: 'Kubernetes vs traditional deployment methods',
-          description: 'Compare Kubernetes with traditional deployment approaches and understand its advantages.'
-        },
-        {
-          title: 'Core components: Cluster, Node, Pod, Service',
-          description: 'Learn the essential building blocks of Kubernetes architecture.'
-        },
-        {
-          title: 'Setting up a local cluster with Minikube or Kind',
-          description: 'Hands-on experience setting up a local Kubernetes development environment.'
-        }
-      ]
-    }
-    ,
-    {
-      title: 'Module 2: Kubernetes Architecture and Objects',
-      topics: [
-        {
-          title: 'Understanding Master and Worker nodes',
-          description: 'Deep dive into Kubernetes cluster architecture and component roles.'
-        },
-        {
-          title: 'Key objects: Deployments, ReplicaSets, Services, ConfigMaps, Secrets',
-          description: 'Master the fundamental Kubernetes objects and their relationships.'
-        },
-        {
-          title: 'Namespaces and resource quotas',
-          description: 'Learn to organize and manage resources within a Kubernetes cluster.'
-        },
-        {
-          title: 'Hands-on with kubectl',
-          description: 'Practice using kubectl for cluster management and troubleshooting.'
-        }
-      ]
-    },
-    {
-      title: 'Module 3: Deploying Applications on Kubernetes',
-      topics: [
-        {
-          title: 'Writing and deploying Kubernetes manifests (YAML files)',
-          description: 'Learn to create and manage Kubernetes resources using YAML manifests.'
-        },
-        {
-          title: 'Managing rolling updates and rollbacks',
-          description: 'Master deployment strategies and version control for applications.'
-        },
-        {
-          title: 'Scaling applications manually and automatically',
-          description: 'Implement horizontal pod autoscaling and manual scaling techniques.'
-        },
-        {
-          title: 'Debugging pods and application failures',
-          description: 'Learn troubleshooting techniques for common Kubernetes issues.'
-        }
-      ]
-    },
-    {
-      title: 'Module 4: Working with Volumes and Configurations',
-      topics: [
-        {
-          title: 'Kubernetes storage basics',
-          description: 'Understanding storage concepts and options in Kubernetes.'
-        },
-        {
-          title: 'Using Persistent Volumes and Persistent Volume Claims',
-          description: 'Implement persistent storage solutions for stateful applications.'
-        },
-        {
-          title: 'Injecting environment variables, ConfigMaps, and Secrets',
-          description: 'Master configuration management and secret handling in Kubernetes.'
-        },
-        {
-          title: 'Hands-on with stateful apps and storage',
-          description: 'Practice deploying applications with persistent storage requirements.'
-        }
-      ]
-    },
-    {
-      title: 'Module 5: Networking and Service Discovery',
-      topics: [
-        {
-          title: 'Pod-to-pod communication and DNS in Kubernetes',
-          description: 'Understanding Kubernetes networking model and service discovery.'
-        },
-        {
-          title: 'Services: ClusterIP, NodePort, LoadBalancer',
-          description: 'Learn different service types and their use cases.'
-        },
-        {
-          title: 'Ingress controllers and traffic routing basics',
-          description: 'Implement external access and routing for applications.'
-        },
-        {
-          title: 'Hands-on with NGINX Ingress controller',
-          description: 'Practice configuring and managing ingress resources.'
-        }
-      ]
-    },
-    {
-      title: 'Module 6: Helm and Kubernetes Ecosystem',
-      topics: [
-        {
-          title: 'Introduction to Helm and Helm charts',
-          description: 'Learn package management for Kubernetes applications.'
-        },
-        {
-          title: 'Installing and managing applications with Helm',
-          description: 'Practice deploying applications using Helm charts.'
-        },
-        {
-          title: 'Overview of popular tools: ArgoCD, Kustomize, K9s',
-          description: 'Explore essential tools in the Kubernetes ecosystem.'
-        },
-        {
-          title: 'CI/CD basics with Kubernetes',
-          description: 'Understand continuous deployment practices for Kubernetes.'
-        }
-      ]
-    },
-    {
-      title: 'Module 7: Capstone Project and Review',
-      topics: [
-        {
-          title: 'Deploying a microservices app on Kubernetes',
-          description: 'Build and deploy a complete microservices application.'
-        },
-        {
-          title: 'Helm-based application deployment',
-          description: 'Create and manage Helm charts for your application.'
-        },
-        {
-          title: 'Observability: Metrics and logs',
-          description: 'Implement monitoring and logging for your application.'
-        },
-        {
-          title: 'Final Q&A, feedback, and career guidance',
-          description: 'Review course concepts and discuss career opportunities.'
-        }
-      ]
-    }
-  ];
-  
-  // Then in the courses array, add the Kubernetes course properly:
-  const courses = [
-    {
-      id: 1,
-      title: 'MLOps Fundamentals',
-      icon: '🧠💻',
-      description: 'Master the essential skills and tools needed for implementing MLOps in production environments.',
-      level: 'Intermediate',
-      duration: '12 weeks',
-      modules: moduleData
-    },
-    {
-      id: 2,
-      title: 'Generative AI & Prompt Engineering',
-      icon: '	🤖',
-      description: 'Master the art of prompt engineering and build powerful Generative AI applications.',
-      level: 'Introductory to Intermediate',
-      duration: '12 weeks',
-      targetAudience: 'Students with no prior experience in AI/ML',
-      deliveryMethod: 'Hands-on sessions facilitated by the instructor',
-      modules: genAIModuleData
-    },
-    {
-      id: 3,
-      title: 'DevSecOps Fundamentals',
-      icon: '🤝🔐💻',
-      description: 'Learn to integrate security practices throughout the software development lifecycle.',
-      level: 'Introductory to Intermediate',
-      duration: '12 weeks',
-      targetAudience: 'Students with no prior experience in security, DevOps',
-      deliveryMethod: 'Hands-on sessions facilitated by the instructor',
-      modules: devSecOpsModuleData
-    }
-    ,
-    {
-      id: 4,
-      title: 'Kubernetes Fundamentals',
-      icon: '☸️',
-      description: '  Learn to integrate security practices throughout the software development lifecycle.',
-      level: 'Introductory to Intermediate',
-      duration: '12 weeks',
-      targetAudience: 'Students with no prior experience in security, DevOps',
-      deliveryMethod: 'Hands-on sessions facilitated by the instructor',
-      modules:kubernetesModuleData
-    }
-  ];
-
-  const toggleModule = (moduleIndex) => {
-    setExpandedModules(prev => {
-      if (prev.includes(moduleIndex)) {
-        return prev.filter(i => i !== moduleIndex);
-      } else {
-        return [...prev, moduleIndex];
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  };
+    }
+  }, [location]);
 
-  return (
-    <div className="training_page dark_theme">
-      <Header />
-      <ScrollToTop />
-      
-      <section className="training_hero">
-        <div className="container">
-          <div className="hero_content">
-            <h1 style={{color: 'white'}}>Professional Training Programs</h1>
-            <p>Elevate your career with industry-leading technical courses</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="course_catalog">
-        <div className="container">
-          <div className="courses_grid">
-            {courses.map(course => (
-              <div 
-                key={course.id} 
-                className={`course_card ${selectedCourse === course.id ? 'active' : ''}`}
-                onClick={() => setSelectedCourse(course.id)}
-              >
-                <div className="course_icon">{course.icon}</div>
-                <h3>{course.title}</h3>
-                <p>{course.description}</p>
-                <div className="course_meta">
-                  <span className="level">{course.level}</span>
-                  <span className="duration">{course.duration}</span>
-                </div>
+  const ModuleSection = ({ title, modules }) => (
+    <div className="module-section">
+      <h2>{title}</h2>
+      {modules.map((module, index) => (
+        <div className="module-card" key={index}>
+          <button 
+            className="module-header"
+            onClick={() => setActiveModule(activeModule === index ? null : index)}
+          >
+            {module.title}
+            <span className={`toggle-icon ${activeModule === index ? 'open' : ''}`}>
+              ▾
+            </span>
+          </button>
+          
+          <div className={`module-content ${activeModule === index ? 'open' : ''}`}>
+            {module.topics.map((topic, tIndex) => (
+              <div className="topic-card" key={tIndex}>
+                <h4>{topic.title}</h4>
+                <p>{topic.description}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  );
 
-      {selectedCourse && (
-        <section className="course_modules">
+  return (
+    <div className="training-container">
+      <Header />
+      <ScrollToTop />
+      <div className="services_page">
+        <div className="services_hero">
           <div className="container">
-            <h2 className="section_title">{courses[selectedCourse - 1].title}</h2>
-            <div className="modules_container">
-              {courses[selectedCourse - 1].modules.map((module, index) => (
-                <div className="module_card" key={index}>
-                  <div className="module_header" onClick={() => toggleModule(index)}>
-                    <h3>{module.title}</h3>
-                    <span className="expand_icon">
-                      {expandedModules.includes(index) ? '▼' : '▶'}
-                    </span>
-                  </div>
-                  {expandedModules.includes(index) && (
-                    <div className="module_content">
-                      <ul>
-                        {module.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex}>
-                            <h4>{topic.title}</h4>
-                            <p>{topic.description}</p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <h1>Supporting your Cloud, Data, and AI Journey</h1>
+            <p>We offer a variety of services for both enterprises and startups, focused around DevOps and dealing with data</p>
           </div>
-        </section>
-      )}
+        </div> 
+        
+            </div>
+            <div className="train-container">
+      
+            <div id="mlops"> <ModuleSection title="MLOps Training" modules={moduleData}  /></div> 
+      <div id="genai"> <ModuleSection title="Generative AI"   modules={genAIModuleData} /></div> 
+      <div id="devsecops"> <ModuleSection title="DevSecOps" modules={devSecOpsModuleData} /></div> 
+      <div id="k8s"><ModuleSection title="Kubernetes" modules={kubernetesModuleData} /></div> 
+    </div>
     </div>
   );
 };
