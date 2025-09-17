@@ -56,7 +56,7 @@ const Footer = () => {
                 <h5>Company</h5>
                 <p><Link className="nav-link" to="/about"><span>About</span></Link></p>
                 <p><Link className="nav-link" to="/about#careers"><span>Careers</span></Link></p>
-                <p><Link className="nav-link" to="/case-studies"><span>Case Studies</span></Link></p>
+                {/* <p><Link className="nav-link" to="/case-studies"><span>Case Studies</span></Link></p> */}
                 <p><Link className="nav-link" to="/contact"><span>Contact Us</span></Link></p>
               </div>
             </div>
@@ -65,7 +65,18 @@ const Footer = () => {
       </div>
       <div className="footer_bottom">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Monk Technologies. All rights reserved.</p>
+          <div className="row">
+            <div className="col-12 text-center mb-3">
+              <p>
+                <Link to="/privacy" className="footer-policy-link">Privacy Policy</Link> | 
+                <Link to="/terms-conditions" className="footer-policy-link">Terms & Conditions</Link> | 
+                <Link to="/cancellation-refunds" className="footer-policy-link">Cancellation & Refunds</Link>
+              </p>
+            </div>
+            <div className="col-12 text-center">
+              <p>&copy; {new Date().getFullYear()} Monk Technologies. All rights reserved.</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
